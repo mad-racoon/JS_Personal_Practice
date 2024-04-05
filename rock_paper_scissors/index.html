@@ -9,31 +9,33 @@
   <body>
     <!-- head -->
     <section>
-      <h1 class="title">Rock Paper Scissors</h1>
+      <h1 class="title center">Rock Paper Scissors</h1>
     </section>
     <section>
-      <h1 class="result">You win!</h1>
+      <h1 class="result center">You win!</h1>
     </section>
     <!-- body -->
     <section>
-      <div class="row">
-        <div id="player" class="row">
-          <img class="img--player" alt="thumb_image" />
-          <button class="btn--rock">Rock</button>
-          <button class="btn--scissors">Scissors</button>
-          <button class="btn--paper">Papers</button>
+      <div class="row center">
+        <div id="player" class="column">
+          <img src="scissors.png" alt="thumb_image" />
+          <div>
+            <button class="btn--rock">Rock</button>
+            <button class="btn--scissors">Scissors</button>
+            <button class="btn--paper">Papers</button>
+          </div>
         </div>
         <div id="computer" class="column">
-          <img class="img--computer" alt="question_mark" />
+          <img src="rock-paper-scissors.png" alt="question_mark" />
           <h2>computer</h2>
         </div>
       </div>
     </section>
 
     <!-- foot -->
-    <section>
+    <div class="center">
       <button class="btn--play">Play</button>
-    </section>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
