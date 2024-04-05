@@ -7,34 +7,36 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- head -->
-    <section>
-      <h1 class="title center">Rock Paper Scissors</h1>
-    </section>
-    <section>
-      <h1 class="result center">You win!</h1>
-    </section>
-    <!-- body -->
-    <section>
-      <div class="row center">
-        <div id="player" class="column">
-          <img src="scissors.png" alt="thumb_image" />
-          <div>
-            <button class="btn--rock">Rock</button>
-            <button class="btn--scissors">Scissors</button>
-            <button class="btn--paper">Papers</button>
+    <div class="container center">
+      <!-- head -->
+      <section>
+        <h1 class="title">Rock Paper Scissors</h1>
+      </section>
+      <section>
+        <h1 class="result">You win!</h1>
+      </section>
+      <!-- body -->
+      <section>
+        <div class="row">
+          <div id="player" class="column">
+            <img src="scissors.png" alt="thumb_image" />
+            <div>
+              <button class="btn--rock">Rock</button>
+              <button class="btn--scissors">Scissors</button>
+              <button class="btn--paper">Papers</button>
+            </div>
+          </div>
+          <div id="computer" class="column">
+            <img src="rock-paper-scissors.png" alt="question_mark" />
+            <h2>computer</h2>
           </div>
         </div>
-        <div id="computer" class="column">
-          <img src="rock-paper-scissors.png" alt="question_mark" />
-          <h2>computer</h2>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- foot -->
-    <div class="center">
-      <button class="btn--play">Play</button>
+      <!-- foot -->
+      <div>
+        <button class="btn--play">Play</button>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
