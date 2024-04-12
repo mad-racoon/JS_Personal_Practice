@@ -19,7 +19,6 @@ const init = function () {
 
   // Create random rock scissors papers
   computer = Math.trunc(Math.random() * 3) + 1;
-  console.log(computer); // 1 = rock, 2 = scissors, 3 = papers
 
   // Hide Play again button
   btnAgain.classList.add("hidden");
@@ -36,23 +35,17 @@ init();
 // functions for user choice
 const clickRock = function () {
   playerImg.src = "rock.png";
-  console.log("rock clicked");
   player = 1;
-  console.log(player);
 };
 
 const clickScissors = function () {
   playerImg.src = "scissors.png";
-  console.log("scissors clicked");
   player = 2;
-  console.log(player);
 };
 
 const clickPaper = function () {
   playerImg.src = "paper.png";
-  console.log("paper clicked");
   player = 3;
-  console.log(player);
 };
 
 // Show computer's choice
@@ -71,19 +64,17 @@ btnRock.addEventListener("click", clickRock);
 btnScissors.addEventListener("click", clickScissors);
 btnPaper.addEventListener("click", clickPaper);
 
-// Game logic
+// Game logic : 1 = rock, 2 = scissors, 3 = papers
 // Player wins
 btnGo.addEventListener("click", function () {
   showComputerChoice();
   btnGo.classList.add("hidden");
   btnAgain.classList.remove("hidden");
-  console.log(computer);
   if (
     (player === 1 && computer === 2) ||
     (player === 2 && computer === 3) ||
     (player === 3 && computer === 1)
   ) {
-    console.log("player won");
     messageEl.textContent = "Player Won!";
   } else if (
     // Computer wins
@@ -91,7 +82,6 @@ btnGo.addEventListener("click", function () {
     (computer === 2 && player === 3) ||
     (computer === 3 && player === 1)
   ) {
-    console.log("computer won");
     messageEl.textContent = "Computer Won!";
   } else if (
     // Draw
@@ -99,10 +89,9 @@ btnGo.addEventListener("click", function () {
     (computer === 2 && player === 2) ||
     (computer === 3 && player === 3)
   ) {
-    console.log("draw");
     messageEl.textContent = "Draw!";
   }
 });
 
-// restart game
+// Restart game
 btnAgain.addEventListener("click", init);
