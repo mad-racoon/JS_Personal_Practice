@@ -10,12 +10,13 @@ const btnPaper = document.querySelector(".btn--paper");
 const btnGo = document.querySelector(".btn--go");
 const btnAgain = document.querySelector(".btn--again");
 
-let player, computer;
+let player, computer, play;
 
 // Starting point
 const init = function () {
   messageEl.textContent = "make your decision";
   playerImg.src = "rock-paper-scissors.png";
+  play = true;
 
   // Create random rock scissors papers
   computer = Math.trunc(Math.random() * 3) + 1;
@@ -34,18 +35,25 @@ init();
 
 // functions for user choice
 const clickRock = function () {
-  playerImg.src = "rock.png";
-  player = 1;
+  // Player can change decision if only play is true
+  if (play) {
+    playerImg.src = "rock.png";
+    player = 1;
+  }
 };
 
 const clickScissors = function () {
-  playerImg.src = "scissors.png";
-  player = 2;
+  if (play) {
+    playerImg.src = "scissors.png";
+    player = 2;
+  }
 };
 
 const clickPaper = function () {
-  playerImg.src = "paper.png";
-  player = 3;
+  if (play) {
+    playerImg.src = "paper.png";
+    player = 3;
+  }
 };
 
 // Show computer's choice
@@ -67,6 +75,7 @@ btnPaper.addEventListener("click", clickPaper);
 // Game logic : 1 = rock, 2 = scissors, 3 = papers
 // Player wins
 btnGo.addEventListener("click", function () {
+  play = false;
   showComputerChoice();
   btnGo.classList.add("hidden");
   btnAgain.classList.remove("hidden");
