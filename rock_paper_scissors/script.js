@@ -8,16 +8,30 @@ const btnRock = document.querySelector(".btn--rock");
 const btnScissors = document.querySelector(".btn--scissors");
 const btnPaper = document.querySelector(".btn--paper");
 const btnGo = document.querySelector(".btn--go");
+const btnAgain = document.querySelector(".btn--again");
 
 let player, computer;
 
 // Starting point
-messageEl.textContent = "make your decision";
-playerImg.src = "rock-paper-scissors.png";
+const init = function () {
+  messageEl.textContent = "make your decision";
+  playerImg.src = "rock-paper-scissors.png";
 
-// Create random rock scissors papers
-computer = Math.trunc(Math.random() * 3) + 1;
-console.log(computer); // 1 = rock, 2 = scissors, 3 = papers
+  // Create random rock scissors papers
+  computer = Math.trunc(Math.random() * 3) + 1;
+  console.log(computer); // 1 = rock, 2 = scissors, 3 = papers
+
+  // Hide Play again button
+  btnAgain.classList.add("hidden");
+
+  // Show Go button
+  btnGo.classList.remove("hidden");
+
+  // Hide Computer's decision
+  computerImg.src = "rock-paper-scissors.png";
+};
+
+init();
 
 // functions for user choice
 const clickRock = function () {
@@ -61,6 +75,8 @@ btnPaper.addEventListener("click", clickPaper);
 // Player wins
 btnGo.addEventListener("click", function () {
   showComputerChoice();
+  btnGo.classList.add("hidden");
+  btnAgain.classList.remove("hidden");
   console.log(computer);
   if (
     (player === 1 && computer === 2) ||
@@ -87,3 +103,6 @@ btnGo.addEventListener("click", function () {
     messageEl.textContent = "Draw!";
   }
 });
+
+// restart game
+btnAgain.addEventListener("click", init);

@@ -12,3 +12,7 @@ img {
 .column {
   flex: 50%;
 }
+
+.hidden {
+  display: none;
+}
