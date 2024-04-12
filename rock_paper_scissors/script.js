@@ -33,7 +33,7 @@ const init = function () {
 
 init();
 
-// functions for user choice
+// functions for player's choice
 const clickRock = function () {
   // Player can change decision if only play is true
   if (play) {
@@ -67,7 +67,7 @@ const showComputerChoice = function () {
   }
 };
 
-// Event listeners for user decision
+// Event listeners for player's decision
 btnRock.addEventListener("click", clickRock);
 btnScissors.addEventListener("click", clickScissors);
 btnPaper.addEventListener("click", clickPaper);
