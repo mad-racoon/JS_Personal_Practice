@@ -3,6 +3,7 @@
 // Selecting elements
 const messageEl = document.querySelector(".message");
 const playerImg = document.querySelector(".img--player");
+const computerImg = document.querySelector(".img--computer");
 const btnRock = document.querySelector(".btn--rock");
 const btnScissors = document.querySelector(".btn--scissors");
 const btnPaper = document.querySelector(".btn--paper");
@@ -40,16 +41,26 @@ const clickPaper = function () {
   console.log(player);
 };
 
+// Show computer's choice
+const showComputerChoice = function () {
+  if (computer === 1) {
+    computerImg.src = "rock.png";
+  } else if (computer === 2) {
+    computerImg.src = "scissors.png";
+  } else if (computer === 3) {
+    computerImg.src = "paper.png";
+  }
+};
+
 // Event listeners for user decision
 btnRock.addEventListener("click", clickRock);
-
 btnScissors.addEventListener("click", clickScissors);
-
 btnPaper.addEventListener("click", clickPaper);
 
 // Game logic
 // Player wins
 btnGo.addEventListener("click", function () {
+  showComputerChoice();
   console.log(computer);
   if (
     (player === 1 && computer === 2) ||
@@ -57,6 +68,7 @@ btnGo.addEventListener("click", function () {
     (player === 3 && computer === 1)
   ) {
     console.log("player won");
+    messageEl.textContent = "Player Won!";
   } else if (
     // Computer wins
     (computer === 1 && player === 2) ||
@@ -64,10 +76,14 @@ btnGo.addEventListener("click", function () {
     (computer === 3 && player === 1)
   ) {
     console.log("computer won");
+    messageEl.textContent = "Computer Won!";
   } else if (
+    // Draw
     (computer === 1 && player === 1) ||
     (computer === 2 && player === 2) ||
     (computer === 3 && player === 3)
-  )
+  ) {
     console.log("draw");
+    messageEl.textContent = "Draw!";
+  }
 });
