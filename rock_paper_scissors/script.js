@@ -10,7 +10,9 @@ const btnPaper = document.querySelector(".btn--paper");
 const btnGo = document.querySelector(".btn--go");
 const btnAgain = document.querySelector(".btn--again");
 
-let player, computer, play, playerChoice;
+let player, computer, play, playerChoice, scorePlayer, scoreComputer;
+scorePlayer = 0;
+scoreComputer = 0;
 
 // Starting point
 const init = function () {
@@ -77,19 +79,22 @@ btnScissors.addEventListener("click", clickScissors);
 btnPaper.addEventListener("click", clickPaper);
 
 // Game logic : 1 = rock, 2 = scissors, 3 = papers
-// Player wins
 btnGo.addEventListener("click", function () {
   if (playerChoice) {
     play = false;
     showComputerChoice();
     btnGo.classList.add("hidden");
     btnAgain.classList.remove("hidden");
+    // Player wins
     if (
       (player === 1 && computer === 2) ||
       (player === 2 && computer === 3) ||
       (player === 3 && computer === 1)
     ) {
       messageEl.textContent = "Player Won!";
+      scorePlayer++;
+      document.querySelector(".scorePlayer").textContent = scorePlayer;
+      console.log(`player score: ${scorePlayer}`);
     } else if (
       // Computer wins
       (computer === 1 && player === 2) ||
@@ -97,6 +102,9 @@ btnGo.addEventListener("click", function () {
       (computer === 3 && player === 1)
     ) {
       messageEl.textContent = "Computer Won!";
+      scoreComputer++;
+      document.querySelector(".scoreComputer").textContent = scoreComputer;
+      console.log(`computer score: ${scoreComputer}`);
     } else if (
       // Draw
       (computer === 1 && player === 1) ||
